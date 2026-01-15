@@ -1,0 +1,110 @@
+[
+    {
+        "teamId": 1,
+        "team": "FURIA Esports",
+        "players": [
+            {
+                "id": 1,
+                "name": "Gabriel \"FalleN\" Toledo",
+                "age": 34,
+                "role": "IGL"
+            },
+            {
+                "id": 2,
+                "name": "Yuri \"yuurih\" Santos",
+                "age": 25,
+                "role": "Rifler"
+            },
+            {
+                "id": 3,
+                "name": "Kaike \"KSCERATO\" Cerato",
+                "age": 26,
+                "role": "Rifler"
+            },
+            {
+                "id": 4,
+                "name": "Danil \"molodoy\" Golubenko",
+                "age": 20,
+                "role": "AWPer"
+            },
+            {
+                "id": 5,
+                "name": "Mareks \"YEKINDAR\" Gaļinskis",
+                "age": 25,
+                "role": "Rifler"
+            }
+        ]
+    },
+    {
+        "teamId": 2,
+        "team": "Team Vitality",
+        "players": [
+            {
+                "id": 6,
+                "name": "Dan \"apEX\" Madesclaire",
+                "age": 32,
+                "role": "IGL"
+            },
+            {
+                "id": 7,
+                "name": "Mathieu \"ZywOo\" Herbaut",
+                "age": 24,
+                "role": "AWPer"
+            },
+            {
+                "id": 8,
+                "name": "Shahar \"flameZ\" Shushan",
+                "age": 22,
+                "role": "Rifler"
+            },
+            {
+                "id": 9,
+                "name": "William \"mezii\" Merriman",
+                "age": 26,
+                "role": "Rifler"
+            },
+            {
+                "id": 10,
+                "name": "Robin \"ropz\" Kool",
+                "age": 25,
+                "role": "Rifler"
+            }
+        ]
+    },
+    {
+        "teamId": 3,
+        "team": "Team Falcons",
+        "players": [
+            {
+                "id": 11,
+                "name": "Maksim \"kyousuke\" Lukin",
+                "age": 19,
+                "role": "Rifler"
+            },
+            {
+                "id": 12,
+                "name": "Damjan \"kyxsan\" Stoilkovski",
+                "age": 24,
+                "role": "IGL"
+            },
+            {
+                "id": 13,
+                "name": "Ilya \"m0NESY\" Osipov",
+                "age": 20,
+                "role": "AWPer"
+            },
+            {
+                "id": 14,
+                "name": "René \"TeSeS\" Madsen",
+                "age": 24,
+                "role": "Rifler"
+            },
+            {
+                "id": 15,
+                "name": "Nikola \"NiKo\" Kovač",
+                "age": 28,
+                "role": "Rifler"
+            }
+        ]
+    }
+]
