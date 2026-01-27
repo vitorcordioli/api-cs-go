@@ -1,4 +1,4 @@
 export default interface ClubModel {
-    teamId?: number;
+    teamId: number;
     team: string;
 }
