@@ -9,8 +9,14 @@ export const checkApiStatus = async (req: Request, res: Response) => {
 };
 
 export const getAllPlayers = async (req: Request, res: Response) => {
-    const data: DataResponseModel<ClubsPlayersModel[]> = await playersService.getAllPlayersService();
+    const role = req.query.role as string | undefined;
 
+    if (role) {
+        const data: DataResponseModel<ClubsPlayersModel[]> = await playersService.getPlayerbyRoleService(role);
+        return res.status(data.statusCode).json(data.body);
+    }
+
+    const data: DataResponseModel<ClubsPlayersModel[]> = await playersService.getAllPlayersService();
     res.status(data.statusCode).json(data.body);
 };
 
@@ -21,16 +27,9 @@ export const getPlayerById = async (req: Request, res: Response) => {
     res.status(data.statusCode).json(data.body);
 };
 
-export const getPlayersByRole = async (req: Request, res: Response) => {
-    const players: string = req.params.role;
-    const data: DataResponseModel<ClubsPlayersModel[]> = await playersService.getPlayerbyRoleService(players);
-
-    res.status(data.statusCode).json(data.body);
-};
-
 export const postPlayer = async (req: Request, res: Response) => {
-    const { teamId, players } = req.body;
-    const data: DataResponseModel<PlayerModel> = await playersService.postPlayerService(teamId, players);
+    const { teamId, player } = req.body;
+    const data: DataResponseModel<PlayerModel> = await playersService.postPlayerService(teamId, player);
 
     res.status(data.statusCode).json(data.body);
 }

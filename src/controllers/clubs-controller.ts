@@ -11,9 +11,9 @@ export const getAllClubs = async (req: Request, res: Response) => {
 
 export const getClubById = async (req: Request, res:Response) => {
   const clubId: number = parseInt(req.params.teamId);
-  const data = await clubsService.getClubById(clubId)
+  const data = await clubsService.getClubById(clubId);
 
-  res.status(data.statusCode).json(data.body)
+  res.status(data.statusCode).json(data.body);
 };
 
 export const postClub = async (req: Request, res: Response) => {

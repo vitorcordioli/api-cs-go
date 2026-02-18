@@ -31,7 +31,7 @@ export const createPlayer = async (teamId: number, players: Omit<PlayerModel, "i
   if (!team) throw new Error("Time não encontrado");
 
   let newId: number = 0;
-  const lastPlayer = team.players[team.players.length - 1];
+  const lastPlayer = data[data.length - 1].players[data[data.length - 1].players.length - 1];
 
   if (lastPlayer) {
     newId = lastPlayer.id + 1;
