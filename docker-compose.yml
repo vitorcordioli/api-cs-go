@@ -1,17 +1,15 @@
-version: "3.8"
-
 services:
   postgres:
     container_name: postgres_csapi
     image: bitnami/postgresql:latest
     environment:
-      POSTGRES_USER: vitor
-      POSTGRES_PASSWORD: senha123
-      POSTGRES_DB: csapi
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/src/lib/postgresql/data
+      - postgres_data:/bitnami/postgresql
 
 volumes:
   postgres_data:

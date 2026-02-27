@@ -25,7 +25,7 @@ export const getPlayerByIdService = async (id: number) => {
 };
 
 export const getPlayerbyRoleService = async (role: string) => {
-    const data = await playersRepository.findPlayerByRole(role)
+    const data: ClubsPlayersModel[] = await playersRepository.findPlayerByRole(role)
 
     if (!data || Object.keys(data).length == 0) {
         return {statusCode: StatusCode.NOT_FOUND, body: 'Player not found'};
@@ -35,7 +35,7 @@ export const getPlayerbyRoleService = async (role: string) => {
 };
 
 export const postPlayerService = async (teamId: number, players: Omit<PlayerModel, "id">) => {
-    const data = await playersRepository.createPlayer(teamId, players);
+    const data: PlayerModel = await playersRepository.createPlayer(teamId, players);
 
     if (!data || Object.keys(data).length == 0) {
         return {statusCode: StatusCode.NOT_FOUND, body: 'Player not found'};

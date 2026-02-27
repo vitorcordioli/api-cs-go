@@ -22,7 +22,7 @@ export const getAllPlayers = async (req: Request, res: Response) => {
 
 export const getPlayerById = async (req: Request, res: Response) => {
     const playerId: number = parseInt(req.params.id);
-    const data: DataResponseModel<PlayerModel> = await playersService.getPlayerByIdService(playerId);
+    const data: DataResponseModel<ClubsPlayersModel> = await playersService.getPlayerByIdService(playerId);
 
     res.status(data.statusCode).json(data.body);
 };
@@ -42,7 +42,7 @@ export const deletePlayer = async (req: Request, res: Response) => {
 
 export const patchPlayer = async (req: Request, res: Response) => { 
     const id: number = parseInt(req.params.id);
-    const player: Partial<PlayerModel> = req.body;
+    const player: Partial<PlayerModel> = req.body.player;
 
     const data: DataResponseModel<PlayerModel> = await playersService.patchPlayerService(id, player);
     res.status(data.statusCode).json(data.body);

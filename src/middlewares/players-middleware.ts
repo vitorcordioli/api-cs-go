@@ -2,7 +2,6 @@ import { Response, Request, NextFunction } from "express";
 
 export const validatePostPlayer = (req: Request, res: Response, next: NextFunction) => {
     const { teamId, player } = req.body;
-    const { name, age, role } = player;
 
     if (!teamId || typeof teamId !== "number") {
         return res.status(400).json({ error: "teamId inválido" });
@@ -11,6 +10,8 @@ export const validatePostPlayer = (req: Request, res: Response, next: NextFuncti
     if (!player || Array.isArray(player)) {
         return res.status(400).json({ error: "player deve ser um objeto, não um array" });
     }
+
+    const { name, age, role } = player;
 
     if (!name || typeof name !== "string") {
         return res.status(400).json({ error: "name inválido" });
@@ -28,12 +29,13 @@ export const validatePostPlayer = (req: Request, res: Response, next: NextFuncti
 };
 
 export const validatePatchPlayer = (req: Request, res: Response, next: NextFunction) => {
-    const player = req.body;
-    const { name, age, role } = player;
+    const player = req.body.player;
 
     if (!player || Array.isArray(player)) {
         return res.status(400).json({ error: "player deve ser um objeto, não um array" });
     }
+
+    const { name, age, role } = player;
 
     if (!name || typeof name !== "string") {
         return res.status(400).json({ error: "name inválido" });
