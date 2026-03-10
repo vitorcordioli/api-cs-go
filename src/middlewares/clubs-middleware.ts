@@ -25,3 +25,13 @@ export const validatePostClub = (req: Request, res: Response, next: NextFunction
     };
     next();
 };
+
+export const validatePatchClub = (req: Request, res: Response, next: NextFunction) => {
+    const { team } = req.body;
+
+    if (team && typeof team !== "string") {
+        return res.status(400).json({ error: "team inválido" });
+    }
+
+    next();
+};

@@ -51,3 +51,13 @@ export const validatePatchPlayer = (req: Request, res: Response, next: NextFunct
 
     next();
 };
+
+export const validateTransferPlayer = (req: Request, res: Response, next: NextFunction) => {
+    const { teamId } = req.body;
+
+    if (!teamId || typeof teamId !== "number") {
+        return res.status(400).json({ error: "IdTeam inválido" });
+    }
+
+    next();
+};

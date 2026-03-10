@@ -40,10 +40,25 @@ export const deletePlayer = async (req: Request, res: Response) => {
     res.status(data.statusCode).json(data.body);
 };
 
-export const patchPlayer = async (req: Request, res: Response) => { 
+export const patchPlayer = async (req: Request, res: Response) => {
     const id: number = parseInt(req.params.id);
     const player: Partial<PlayerModel> = req.body.player;
 
     const data: DataResponseModel<PlayerModel> = await playersService.patchPlayerService(id, player);
     res.status(data.statusCode).json(data.body);
 };
+
+export const removePlayerFromClub = async (req: Request, res: Response) => {
+    const id: number = parseInt(req.params.id);
+    const data: DataResponseModel<ClubsPlayersModel> = await playersService.removePlayerFromClubService(id);
+
+    res.status(data.statusCode).json(data.body);
+};
+
+export const transferPlayer = async (req: Request, res: Response) => {
+    const id: number = parseInt(req.params.id);
+    const { teamId } = req.body;
+
+    const data: DataResponseModel<ClubsPlayersModel> = await playersService.transferPlayerService(id, teamId);
+    res.status(data.statusCode).json(data.body);
+}

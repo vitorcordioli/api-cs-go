@@ -21,3 +21,16 @@ export const postClub = async (req: Request, res: Response) => {
   const data: DataResponseModel<ClubModel> = await clubsService.postClubService(club);
   res.status(data.statusCode).json(data.body);
 };
+
+export const deleteClub = async (req: Request, res: Response) => {
+  const clubId: number = parseInt(req.params.teamId);
+  const data: DataResponseModel<ClubModel> = await clubsService.deleteClubService(clubId);
+  res.status(data.statusCode).json(data.body);
+};
+
+export const patchClubByName = async (req: Request, res: Response) => {
+  const clubId: number = parseInt(req.params.teamId);
+  const clubData: Partial<Omit<ClubModel, "teamId">> = req.body;
+  const data: DataResponseModel<ClubModel> = await clubsService.patchClubService(clubId, clubData);
+  res.status(data.statusCode).json(data.body);
+};

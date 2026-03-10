@@ -32,3 +32,23 @@ export const postClubService = async (club: Omit<ClubsPlayersModel, "teamId">) =
         return {statusCode: StatusCode.OK, body: data};
     }
 };
+
+export const deleteClubService = async (teamId: number) => {
+    const data: ClubModel = await clubsRepository.deleteClub(teamId);
+
+    if (!data) {
+        return {statusCode: StatusCode.NOT_FOUND, body: 'No clubs found'};
+    } else {
+        return {statusCode: StatusCode.OK, body: data};
+    }
+};
+
+export const patchClubService = async (teamId: number, clubData: Partial<Omit<ClubModel, "teamId">>) => {
+    const data: ClubModel = await clubsRepository.patchClub(teamId, clubData);
+
+    if (!data) {
+        return {statusCode: StatusCode.NOT_FOUND, body: 'No clubs found'};
+    } else {
+        return {statusCode: StatusCode.OK, body: data};
+    }
+};

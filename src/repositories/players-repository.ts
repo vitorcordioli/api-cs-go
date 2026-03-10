@@ -188,3 +188,57 @@ export const patchPlayerById = async (id: number, player: Partial<PlayerModel>):
     role: updatedPlayer.role
   };
 };
+
+export const removePlayerFromClub = async (id: number): Promise<ClubsPlayersModel> => {
+  const freeAgents = await prisma.club.findFirst({
+    where: { name: "Free Agents" }
+  });
+
+  if (!freeAgents) {
+    throw new Error('Clube "Free Agents" não encontrado');
+  }
+
+  const removePlayer = await prisma.player.update({
+    where: { id: id },
+    data: { clubId: freeAgents?.id }
+  });
+
+  return {
+    teamId: freeAgents?.id,
+    team: freeAgents?.name,
+    players: [{
+      id: removePlayer.id,
+      name: removePlayer.name,
+      age: removePlayer.age,
+      role: removePlayer.role
+    }]
+  }
+};
+
+export const transferPlayer = async (id: number, newIdTeam: number): Promise<ClubsPlayersModel> => {
+  const nextClub = await prisma.club.findFirst({
+    where: { id: newIdTeam }
+  })
+
+  if (!nextClub) {
+    throw new Error('Clube com este ID não encontrado');
+  }
+
+  const finalPlayer = await prisma.player.update({
+    where: { id: id },
+    data: {
+      clubId: nextClub?.id
+    }
+  });
+
+  return {
+    teamId: nextClub.id,
+    team: nextClub.name,
+    players: [{
+      id: finalPlayer.id,
+      name: finalPlayer.name,
+      age: finalPlayer.age,
+      role: finalPlayer.role
+    }]
+  };
+};
