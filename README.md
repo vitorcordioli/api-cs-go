@@ -14,8 +14,8 @@ A REST API for managing players and clubs in the CS2 competitive scene. Create t
 ### Installation
 
 ```bash
-git clone https://github.com/your-user/your-repo
-cd your-repo
+git clone https://github.com/vitorcordioli/api-cs-go.git
+cd api-cs-go
 npm install
 ```
 
