@@ -6,6 +6,13 @@ A REST API for managing players and clubs in the CS2 competitive scene. Create t
 
 ## 🚀 Getting Started
 
+### Swagger UI
+
+After running the server, access the API documentation at:
+```
+http://localhost:3000/api-docs
+```
+
 ### Prerequisites
 
 - Node.js 18+

@@ -40,7 +40,7 @@ export const postPlayerService = async (teamId: number, players: Omit<PlayerMode
     if (!data || Object.keys(data).length == 0) {
         return { statusCode: StatusCode.NOT_FOUND, body: 'Player not found' };
     } else {
-        return { statusCode: StatusCode.OK, body: data };
+        return { statusCode: StatusCode.CREATED, body: data };
     }
 };
 

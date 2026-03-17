@@ -29,7 +29,7 @@ export const postClubService = async (club: Omit<ClubsPlayersModel, "teamId">) =
     if (!data) {
         return {statusCode: StatusCode.NOT_FOUND, body: 'No clubs found'};
     } else {
-        return {statusCode: StatusCode.OK, body: data};
+        return {statusCode: StatusCode.CREATED, body: data};
     }
 };
 
